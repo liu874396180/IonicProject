@@ -1,0 +1,21 @@
+<ion-view title="视频专栏">
+  <ion-content>
+      <ion-refresher
+        pulling-text="下拉刷新..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+
+      <ion-item class="item "  ng-repeat="item in video" ng-click="videoC($index)">
+        <h2 style="white-space: normal">{{item.title}}</h2>
+        <!--<img src="{{item.image}}" alt=""style="width: 100%;height: 100%;">-->
+        <div style="width: 100%;height: 200px;background-image:url({{item.image}});background-size: 100% 200px">
+        <!--<p>{{item.createDate}}</p>-->
+      </ion-item>
+
+      <ion-infinite-scroll
+        on-infinite="loadMore()"
+        distance="1%">
+      </ion-infinite-scroll>
+    <!--</ion-content>-->
+  </ion-content>
+</ion-view>

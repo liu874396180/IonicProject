@@ -1,0 +1,14 @@
+<ion-view view-title="我的">
+  <ion-content>
+    <button class="button button-balanced" ng-click="QQcheckFn()">检测QQ是否安装</button><br>
+    <button class="button button-balanced" ng-click="myAll.login()">QQ登录</button><br>
+    <button class="button button-balanced" ng-click="myAll.logout()">QQ退出</button><br>
+    <div>
+      {{myAll.userName}}
+      {{myAll.userImg}}
+    </div>
+
+    <button class="button button-balanced" ng-click="getUser()">信息获取</button><br>
+  </ion-content>
+</ion-view>
+

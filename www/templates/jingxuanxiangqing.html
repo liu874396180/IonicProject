@@ -1,0 +1,25 @@
+<ion-view title="{{mine.data.mname}}">
+  <ion-nav-buttons>
+    <button class="button button-icon ion ion-ios-arrow-left" ng-click="goBackFn()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion ion-android-share-alt" ng-click="fenxiang()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div style="padding: 1em">
+      <h3>{{mine.data.title}}</h3>
+      <span style="font-size:1em;color: grey;">{{mine.data.author}}&nbsp;&nbsp;&nbsp;{{mine.data.timeString}}</span>
+      <hr>
+      <p>核心提示</p>
+      <span><p style="width: 2em;"> </p>{{mine.data.summary}}</span>
+
+      <div ng-repeat="item in mine.data.content">
+        <img ng-if="item.type=='image'" src="{{item.value}}" alt="" style="width:100%;height: 100%;">
+        <p ng-if="item.type=='text'" style="text-indent:25px">{{item.value}}</p>
+        <br>
+      </div>
+      <hr>
+      <p style="text-align: right; width: 100%; font-size: 12px; color: grey;" >关键词:&nbsp;&nbsp;&nbsp;{{mine.data.tags}}</p>
+    </div>
+  </ion-content>
+</ion-view>

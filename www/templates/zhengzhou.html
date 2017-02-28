@@ -1,0 +1,54 @@
+
+<ion-view title="{{biaoti}}">
+  <ion-scroll class="bar bar-subheader" direction="x" scrollbar-x="false" >
+    <div class="row">
+    <button class="col col-20 button button-clear button-positive" ng-click="qiehuan(1003)">娱乐</button>
+    <button class="col col-20 button button-clear button-positive" ng-click="qiehuan(1004)">国际</button>
+    <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1006)">健康</button>
+    <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1009)">军事</button>
+    <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1010)">财经</button>
+      <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1012)">体育</button>
+      <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1014)">科技</button>
+      <button  class="col col-20 button button-clear button-positive" ng-click="qiehuan(1015)">互联网</button>
+    </div>
+  </ion-scroll>
+  <ion-content class="has-subheader">
+    <!--上拉刷新-->
+    <ion-refresher
+      pulling-text="下拉刷新..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+
+    <!--滑动框、轮播图-->
+    <ion-slide-box dose-cotinue="true" auto-play="true" slide-interval="2000" >
+      <ion-slide ng-repeat="item in mine.dataArr" ng-click="mine.lunboFn($index)">
+        <img style="width: 100%;height: 13em;" src="{{item.picture}}" alt="">
+      </ion-slide>
+    </ion-slide-box>
+    <!--列表-->
+      <!--<div ng-repeat="item in mine.data">-->
+        <ion-item ng-repeat="item in mine.data" class="item item-thumbnail-left" ng-click="mine.jinru($index)">
+          <img ng-if="item.cmsPicture" src="{{item.cmsPicture}}">
+          <img ng-if="!item.cmsPicture" src="{{item.pictureList[0]}}">
+          <h2 style="white-space: normal">{{item.title}}</h2>
+          <br>
+          <span style="font-size: 0.8em;color: grey">{{item.mname}}</span>
+        </ion-item>
+        <!--<ion-item ng-if="item.isHaveImg==false" class="item item-thumbnail-left" ng-click="mine.jinru($index)">-->
+          <!--<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487850487768&di=ca2874e417da1826871ea9685fa6f656&imgtype=0&src=http%3A%2F%2Fwww.btesi.com%2Fstatics%2Fimages%2Ftimmy%2FZWCPTP.gif">-->
+          <!--<h2 style="white-space: normal">{{item.title}}</h2>-->
+          <!--<br>-->
+          <!--<span style="font-size: 0.8em;color: grey">{{item.mname}}</span>-->
+        <!--</ion-item>-->
+      <!--</div>-->
+
+
+    <!--下拉加载-->
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      immediate-check="false"
+      distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

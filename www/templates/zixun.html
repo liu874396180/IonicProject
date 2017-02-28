@@ -1,0 +1,23 @@
+<!--头-->
+<ion-view title="资讯专栏">
+  <!--内容区域-->
+  <ion-content>
+      <!--下拉刷新-->
+      <ion-refresher
+        pulling-text="下拉刷新..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+      <!--列表-->
+      <ion-item class="item item-thumbnail-left"  ng-repeat="item in dataArr" ng-click="itemClick($index)">
+        <img src="{{item.imgsrc}}">
+        <h2 style="white-space: normal">{{item.title}}</h2>
+        <br>
+        <span style="font-size: 0.8em;color: grey">{{item.source}}</span>
+      </ion-item>
+      <!--上拉加载-->
+      <ion-infinite-scroll
+        on-infinite="loadMore()"
+        distance="1%">
+      </ion-infinite-scroll>
+    </ion-content>
+  </ion-view>
